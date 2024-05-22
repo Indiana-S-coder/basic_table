@@ -119,25 +119,27 @@ const App: React.FC = () => {
 
   return (
     <Flex align="center" vertical>
+      <Flex align="center" justify="center" gap="large">
       <Table
         columns={columns}
         dataSource={aggregatedData}
         rowKey="year"
+        pagination={false}
         onRow={(record) => ({
           onClick: () => handleRowClick(record),
         })}
       />
       {selectedYear && (
-        <>
-          <h2>Job Titles for {selectedYear}</h2>
+        <div>
+          <h3 style={{textAlign: "center"}}>Job Titles for {selectedYear}</h3>
           <Table
             columns={jobTitleColumns}
             dataSource={jobTitleData}
             rowKey="title"
-            // pagination={true}
           />
-        </>
+        </div>
       )}
+      </Flex>
       <h2>Job Trends</h2>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
