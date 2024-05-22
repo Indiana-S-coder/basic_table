@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "antd";
+import { Table, Flex } from "antd";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 
@@ -118,7 +118,7 @@ const App: React.FC = () => {
   ];
 
   return (
-    <div>
+    <Flex align="center" vertical>
       <Table
         columns={columns}
         dataSource={aggregatedData}
@@ -134,7 +134,7 @@ const App: React.FC = () => {
             columns={jobTitleColumns}
             dataSource={jobTitleData}
             rowKey="title"
-            pagination={false}
+            // pagination={true}
           />
         </>
       )}
@@ -153,7 +153,7 @@ const App: React.FC = () => {
           <Line type="monotone" dataKey="average_salary" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </Flex>
   );
 };
 
